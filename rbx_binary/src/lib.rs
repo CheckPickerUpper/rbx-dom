@@ -53,9 +53,16 @@ rbx_binary::to_writer(output, &dom, &[dom.root_ref()])?;
 
 #![deny(missing_docs)]
 
+mod binary_string_fallback_cause;
 mod chunk;
 mod core;
+mod decode_diagnostic;
+mod decode_report;
 mod deserializer;
+mod instance_location;
+mod property_location;
+mod property_skip_reason;
+mod reference_kind;
 mod serializer;
 mod types;
 
@@ -76,7 +83,14 @@ pub mod text_format {
 }
 
 pub use crate::{
+    binary_string_fallback_cause::BinaryStringFallbackCause,
+    decode_diagnostic::DecodeDiagnostic,
+    decode_report::DecodeReport,
     deserializer::{Deserializer, Error as DecodeError},
+    instance_location::InstanceLocation,
+    property_location::PropertyLocation,
+    property_skip_reason::PropertySkipReason,
+    reference_kind::ReferenceKind,
     serializer::{CompressionType, Error as EncodeError, Serializer},
 };
 
